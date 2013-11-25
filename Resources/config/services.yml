@@ -1,0 +1,5 @@
+services:
+    btn.bc:
+        class: Btn\BreadcrumbBundle\Model\BreadcrumbManager
+        arguments:
+            params: %btn_breadcrumb%

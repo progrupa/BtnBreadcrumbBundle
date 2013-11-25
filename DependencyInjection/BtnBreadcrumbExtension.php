@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class BtnBaseExtension extends Extension
+class BtnBreadcrumbExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -22,11 +22,19 @@ class BtnBaseExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('btn_bc', array());
+        $arr = array(
+            'separator'       => '/',
+            'separator_class' => '',
+            'id'              => 'btn-breadcrumb',
+            'class'           => 'btn-breadcrumb',
+            'item_class'      => '',
+            'template'        => "BtnBreadcrumbBundle::breadcrumb.html.twig",
+        );
 
-        // $container->setParameter('btn_base.livereload_port', isset($config['livereload_port']) ? $config['livereload_port'] : 35729);
+        $container->setParameter('btn_breadcrumb', array_replace($arr, $config));
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
         $loader->load('services.yml');
     }
 }

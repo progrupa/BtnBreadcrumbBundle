@@ -18,14 +18,20 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('btn_bc');
-        $rootNode
-            ->children()
-                // ->scalarNode('livereload_port')->end()
-            ->end();
+        $rootNode = $treeBuilder->root('btn_breadcrumb');
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('id')->end()
+                ->scalarNode('class')->end()
+                ->scalarNode('template')->end()
+                ->scalarNode('separator')->end()
+                ->scalarNode('item_class')->end()
+                ->scalarNode('separator_class')->end()
+            ->end();
 
         return $treeBuilder;
     }

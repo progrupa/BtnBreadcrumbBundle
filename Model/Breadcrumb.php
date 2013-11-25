@@ -9,17 +9,9 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
     private $items = array();
 
     /**
-     * standard construct
+     * Add breadcrumb items from array
      *
-     * @return void
      **/
-    public function __construct(array $items = null)
-    {
-        if ($items) {
-            $this->setItems($items);
-        }
-    }
-
     public function fromArray(array $items)
     {
         foreach ($items as $name => $url) {
@@ -49,6 +41,27 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
         }
 
         return $this;
+    }
+
+    /**
+     * Create BreadcrumbItem and save to $items
+     *
+     **/
+    public function createItem($name, $url)
+    {
+        $this->addItem(new BreadcrumbItem($name, $url));
+
+        return $this;
+    }
+
+    /**
+     * Create BreadcrumbItem and return
+     *
+     * @return BreadcrumbItem
+     **/
+    public function getCreateItem($name, $url)
+    {
+        return new BreadcrumbItem($name, $url);
     }
 
     /**
