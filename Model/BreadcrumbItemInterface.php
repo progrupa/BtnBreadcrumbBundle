@@ -1,13 +1,9 @@
 <?php
-namespace Btn\BreadcrumbBundle;
+namespace Btn\BreadcrumbBundle\Model;
 
 interface BreadcrumbItemInterface
 {
     public function getName();
 
-    public function setName();
-
     public function getUrl();
-
-    public function setUrl();
 }

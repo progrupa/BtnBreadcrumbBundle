@@ -1,13 +1,11 @@
 <?php
-namespace Btn\BreadcrumbBundle;
+namespace Btn\BreadcrumbBundle\Model;
 
 interface BreadcrumbInterface
 {
-    private $items;
-
     public function addItem(BreadcrumbItemInterface $item);
 
     public function getItems();
 
-    public function setItems();
+    public function setItems(array $items);
 }

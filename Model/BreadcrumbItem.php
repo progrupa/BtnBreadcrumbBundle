@@ -1,5 +1,5 @@
 <?php
-namespace Btn\BreadcrumbBundle;
+namespace Btn\BreadcrumbBundle\Model;
 
 class BreadcrumbItem implements BreadcrumbItemInterface
 {
@@ -26,27 +26,6 @@ class BreadcrumbItem implements BreadcrumbItemInterface
         $this->name = $name;
         $this->url = $url;
     }
-    /**
-     * Set name
-     *
-     **/
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Set url
-     *
-     **/
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
 
     /**
      * Get name
@@ -67,4 +46,13 @@ class BreadcrumbItem implements BreadcrumbItemInterface
     {
         return $this->url;
     }
+
+    /**
+     * __toString
+     *
+     **/
+    public function __toString() {
+        return $this->getName();
+    }
+
 }
