@@ -20,6 +20,13 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
         }
     }
 
+    public function fromArray(array $items)
+    {
+        foreach ($items as $name => $url) {
+            $this->addItem(new BreadcrumbItem($name, $url));
+        }
+    }
+
     /**
      * Add breadcrumb item
      *
