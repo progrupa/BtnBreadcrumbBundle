@@ -1,0 +1,28 @@
+{
+    "name": "bitnoise/breadcrumb-bundle",
+    "type": "symfony-bundle",
+    "description": "Simple breadcrumb for symfony 2.3",
+    "keywords": [ "bitnoise", "utilities"],
+    "homepage": "https://github.com/Bitnoise/BtnBreadcrumbBundle",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Bitnoise Team",
+            "homepage": "http://www.bitnoi.se/",
+            "email": "labs@bitnoi.se"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev"
+    },
+    "suggest": {
+        "raulfraile/ladybug-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Btn\\BtnBreadcrumbBundle": "" }
+    },
+    "target-dir": "Btn/BtnBreadcrumbBundle"
+}
