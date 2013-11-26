@@ -46,4 +46,5 @@ Simple breadcrumb for symfony 2.3
             show_last:       true
 
 4. usage:
+
     {{ btn_bc()|raw }}
