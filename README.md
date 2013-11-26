@@ -4,7 +4,16 @@ Simple breadcrumb for symfony 2.3
 
 1. add the following to your `composer.json`:
 
-        "whiteoctober/breadcrumbs-bundle": "dev-master"
+        "bitnoise/breadcrumb-bundle": "dev-master"
+
+    and
+
+        "repositories": [
+            {
+                "type": "vcs",
+                "url":  "https://github.com/Bitnoise/BtnBreadcrumbBundle.git"
+            }
+        ],
 
     and run:
 
@@ -16,11 +25,12 @@ Simple breadcrumb for symfony 2.3
         {
             return array(
                 // ...
-                new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+                new Btn\BreadcrumbBundle\BtnBreadcrumbBundle(),
                 // ...
             );
         }
-3. Configure the `white_october_breadcrumbs` service in your config.yml:
+3. Configure the `btn_breadcrumb` service in your config.yml:
+
         btn_breadcrumb:
             separator:       '/'
             separator_class: ''
