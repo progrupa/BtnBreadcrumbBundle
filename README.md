@@ -53,7 +53,7 @@ Simple breadcrumb for symfony 2.3
         $bcManager = $this->get('btn.bc');
 
         $bc = $bcManager
-            ->addItem(new BreadcrumbItem('Name 1', 'Url 1')) //add from
+            ->addItem(new BreadcrumbItem('Name 1', 'Url 1'))
             ->createItem('Name 2', 'Url 2') //add and save
         ;
 
