@@ -93,4 +93,4 @@ Simple breadcrumb for symfony 2.3
 
 5. Usage in twig template:
 
-        {{ btn_bc()|raw }}
+        {{ btn_bc() }}

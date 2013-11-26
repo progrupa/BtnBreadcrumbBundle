@@ -1,30 +1,29 @@
 {% if not root %}<ul>{% endif %}
     {% for item in bc.items %}
-            {% if root and loop.last %}
-                {% if params.show_last %}
-                    <li class="{{ loop.last ? 'active' }} {{ params.item_class }}">
-                        {% if params.link_last %}
-                            <a href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
-                        {% else %}
-                            {{ item.name }}
-                        {% endif %}
-                    </li>
+        {% if not root or (not loop.last and root) %}
+            <li class="{{ loop.last ? 'active' }} {{ params.item_class }}">
+                <a href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
+                {% if bc.hasChildren(item) %}
+                    {% include 'BtnBreadcrumbBundle::_item.html.twig' with
+                        { 'bc': item, 'params': params, 'root': false } only %}
                 {% endif %}
-            {% else %}
-                <li class="{{ loop.last ? 'active' }} {{ params.item_class }}">
-                    <a href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
-                    {% if bc.hasChildren(item) %}
-                        {% include 'BtnBreadcrumbBundle::_item.html.twig' with
-                            { 'bc': item, 'params': params, 'root': false } only %}
-                    {% endif %}
-                </li>
-                {% if root and params.display_seperator and not loop.last %}
-                    {% if not params.show_last and loop.index + 1 == loop.length %}
+            </li>
 
-                    {% else %}
-                        <li class="{{ params.separator_class }}">{{ params.separator }}</li>
-                    {% endif %}
-                {% endif %}
+            {% if root and params.display_seperator and loop.index + 1 != loop.length  %}
+                <li class="{{ params.separator_class }}">{{ params.separator }}</li>
             {% endif %}
+        {% endif %}
     {% endfor %}
+
+    {% if params.show_last and root %}
+        <li class="{{ params.separator_class }}">{{ params.separator }}</li>
+        <li class="active' {{ params.item_class }}">
+            {% if params.link_last %}
+                <a href="{{ bc.last.url }}" title="{{ bc.last.name }}">{{ bc.last.name }}</a>
+            {% else %}
+                {{ bc.last.name }}
+            {% endif %}
+        </li>
+    {% endif %}
+
 {% if not root %}</ul>{% endif %}

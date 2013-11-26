@@ -11,7 +11,9 @@ class BreadcrumbExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('btn_bc', array($this, 'render')),
+            'btn_bc' => new \Twig_Function_Method($this, 'render', array(
+                'is_safe' => array('html')
+            ))
         );
     }
 
