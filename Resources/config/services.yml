@@ -3,3 +3,11 @@ services:
         class: Btn\BreadcrumbBundle\Model\BreadcrumbManager
         arguments:
             params: %btn_breadcrumb%
+
+    btn.bc.twig:
+        class: Btn\BreadcrumbBundle\Twig\BreadcrumbExtension
+        tags:
+            - { name: twig.extension }
+        arguments:
+            bc: '@btn.bc'
+            twig:   '@twig'

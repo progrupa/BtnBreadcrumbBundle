@@ -70,7 +70,7 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
      **/
     public function getItems()
     {
-        return $items;
+        return $this->items;
     }
 
     /**
@@ -96,9 +96,9 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
      * Check that has children
      *
      **/
-    public function hasChildren()
+    public function hasChildren($item)
     {
-        if ($this->current() instanceof Breadcrumb) {
+        if ($item instanceof Breadcrumb) {
 
             return true;
         }
@@ -115,6 +115,16 @@ class Breadcrumb implements BreadcrumbInterface, BreadcrumbItemInterface, \Itera
         $items = $this->items;
 
         return reset($items);
+    }
+
+    /**
+     * return last element
+     */
+    public function getLast()
+    {
+        $items = $this->items;
+
+        return end($items);
     }
 
     /**

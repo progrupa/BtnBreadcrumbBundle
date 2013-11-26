@@ -3,17 +3,13 @@ namespace Btn\BreadcrumbBundle\Model;
 
 class BreadcrumbManager extends Breadcrumb
 {
-    private $separator;
-    private $separatorClass;
-    private $id;
-    private $class;
-    private $itemClass;
-    private $template;
     private $params;
+    private $twig;
 
-    public function __construct($params) {
+    public function __construct(array $params) {
         $this->params = $params;
     }
+
     /**
      * create self and return
      *
@@ -55,4 +51,6 @@ class BreadcrumbManager extends Breadcrumb
     public function setParams($params) {
         $this->params = $params;
     }
+
+
 }

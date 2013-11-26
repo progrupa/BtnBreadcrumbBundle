@@ -1,0 +1,9 @@
+<ul id="{{ bc.params.id }}" class="{{ bc.params.class }}">
+    {% if bc.params.display_root %}
+        <li>
+            <a href="{{ (bc.params.root_route ? path(bc.params.root_route) : '/') }}">{{ bc.params.root }}</a>
+        </li>
+    {% endif %}
+    {% include 'BtnBreadcrumbBundle::_item.html.twig' with { 'bc': bc, 'params': bc.params, 'root': true } only %}
+</ul>
+

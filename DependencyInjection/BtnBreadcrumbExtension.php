@@ -23,13 +23,21 @@ class BtnBreadcrumbExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $arr = array(
-            'separator'       => '/',
-            'separator_class' => '',
-            'id'              => 'btn-breadcrumb',
-            'class'           => 'btn-breadcrumb',
-            'item_class'      => '',
-            'template'        => "BtnBreadcrumbBundle::breadcrumb.html.twig",
+            'separator'         => '/',
+            'separator_class'   => '',
+            'id'                => 'btn-breadcrumb',
+            'class'             => 'btn-breadcrumb',
+            'item_class'        => '',
+            'template'          => "BtnBreadcrumbBundle::breadcrumb.html.twig",
+            'display_seperator' => true,
+            'root'              => 'Homepage',
+            'root_route'        => '',
+            'display_root'      => true,
+            'link_last'         => false,
+            'show_last'         => true,
         );
+
+
 
         $container->setParameter('btn_breadcrumb', array_replace($arr, $config));
 

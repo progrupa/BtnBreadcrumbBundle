@@ -31,6 +31,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('separator')->end()
                 ->scalarNode('item_class')->end()
                 ->scalarNode('separator_class')->end()
+                ->scalarNode('display_seperator')->end()
+                ->scalarNode('root')->end()
+                ->scalarNode('root_route')->end()
+                ->scalarNode('display_root')->end()
+                ->scalarNode('link_last')->end()
+                ->scalarNode('show_last')->end()
             ->end();
 
         return $treeBuilder;
