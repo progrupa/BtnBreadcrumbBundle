@@ -21,7 +21,7 @@
             {% if params.link_last %}
                 <a href="{{ bc.last.url }}" title="{{ bc.last.name }}">{{ bc.last.name }}</a>
             {% else %}
-                {{ bc.last.name }}
+                {{ (bc.last ? bc.last.name) }}
             {% endif %}
         </li>
     {% endif %}
