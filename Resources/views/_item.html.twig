@@ -16,14 +16,16 @@
     {% endfor %}
 
     {% if params.show_last and root %}
-        <li class="{{ params.separator_class }}">{{ params.separator }}</li>
-        <li class="active' {{ params.item_class }}">
-            {% if params.link_last %}
-                <a href="{{ bc.last.url }}" title="{{ bc.last.name }}">{{ bc.last.name }}</a>
-            {% else %}
-                {{ (bc.last ? bc.last.name) }}
-            {% endif %}
-        </li>
+        {% if bc.last %}
+            <li class="{{ params.separator_class }}">{{ params.separator }}</li>
+            <li class="active' {{ params.item_class }}">
+                {% if params.link_last %}
+                    <a href="{{ bc.last.url }}" title="{{ bc.last.name }}">{{ bc.last.name }}</a>
+                {% else %}
+                    {{ bc.last.name }}
+                {% endif %}
+            </li>
+        {% endif %}
     {% endif %}
 
 {% if not root %}</ul>{% endif %}

@@ -4,9 +4,8 @@
             <a href="{{ (bc.params.root_route ? path(bc.params.root_route) : '/') }}">{{ bc.params.root }}</a>
         </li>
     {% endif %}
-    {% if bc.params.display_seperator %}
+    {% if bc.params.display_seperator and bc.items|length > 1 %}
             <li class="{{ bc.params.separator_class }}">{{ bc.params.separator }}</li>
     {% endif %}
     {% include 'BtnBreadcrumbBundle::_item.html.twig' with { 'bc': bc, 'params': bc.params, 'root': true } only %}
 </ul>
-
