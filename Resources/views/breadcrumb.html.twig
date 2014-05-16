@@ -1,7 +1,7 @@
 <ul id="{{ bc.params.id }}" class="{{ bc.params.class }}">
     {% if bc.params.display_root %}
         <li>
-            <a href="{{ (bc.params.root_route ? path(bc.params.root_route) : '/') }}">{{ bc.params.root }}</a>
+            <a href="{{ (bc.params.root_route ? path(bc.params.root_route) : app.request.getSchemeAndHttpHost ~ app.request.getBaseURL) }}">{{ bc.params.root }}</a>
         </li>
     {% endif %}
     {% if bc.params.display_seperator and bc.items|length > 1 %}
